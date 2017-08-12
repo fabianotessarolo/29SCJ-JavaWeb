@@ -43,6 +43,7 @@ public class AcessosFilter implements Filter {
 		 HttpServletRequest httpReq = (HttpServletRequest) request;
 		 System.out.println("Estou no session");
 		 HttpSession session = httpReq.getSession(true);
+		 session.setAttribute("usuario", "jose");
 		 
 		chain.doFilter(request, response);
 	}

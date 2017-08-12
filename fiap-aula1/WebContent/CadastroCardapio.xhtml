@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+      
+
+<h:head></h:head> 
+<h:body> 
+		<f:view>
+			<h:form>
+    <p:messages id="messages" autoUpdate="true" />
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Nome" for="nome"/>
+					<p:inputText value="#{cardapioBean.nome}" id="nome" required="true" requiredMessage="Nome Obrigatorio"/>
+					
+					<p:outputLabel value="Tipo" for="tipo"/>				
+					<h:selectOneMenu id="tipo" value="#{cardapioBean.tipos}">
+				    	<f:selectItems value="#{cardapioBean.tipo}" var="tipoNome" itemValue="#{tipoNome}"  itemLabel="tipo"/>
+					</h:selectOneMenu>						
+					
+					<p:outputLabel value="Valor" for="valor" />
+					<p:inputText value="#{cardapioBean.valor}" required="true" id="valor" requiredMessage="Valor obrigatorio"/>
+				</p:panelGrid>
+					<p:commandButton action="#{cardapioBean.salvar}" value="Salvar" />
+			</h:form>
+		</f:view>
+</h:body> 
+</html>
